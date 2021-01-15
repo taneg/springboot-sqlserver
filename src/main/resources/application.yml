@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:jtds:sqlserver://222.180.25.210:14331/wmsinterface_test
+    username: test
+    password: testa.0
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    hikari:
+      connection-test-query:  SELECT 1
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+server:
+  port: 8888
+mybatis-plus:
+  mapper-locations: classpath*:mappers/**/*.xml
+  typeAliasesPackage: link.ahsj.sqlserver.mapper
+  global-config:
+    db-config:
+      id-type: AUTO
+      field-strategy: not_empty
+      column-underline: false
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: false
